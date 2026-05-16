@@ -1,70 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Whitney:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --background-primary: #36393f;
+    --background-secondary: #2f3136;
+    --background-secondary-alt: #292b2f;
+    --background-tertiary: #202225;
+    --background-accent: #4f545c;
+    --background-floating: #18191c;
+    --background-nested-floating: #2f3136;
+    --background-mobile-primary: #36393f;
+    --background-mobile-secondary: #2f3136;
+    --background-modifier-accent: rgba(79,84,92,0.16);
+    --background-modifier-hover: rgba(79,84,92,0.24);
+    --background-modifier-active: rgba(79,84,92,0.32);
+    --background-modifier-selected: rgba(79,84,92,0.48);
+    --background-modifier-accent-hover: hsla(0,0%,100%,0.1);
+    --background-message-highlight: rgba(114,137,218,0.2);
+    --background-scrollbar-thumb: var(--background-tertiary);
+    --background-scrollbar-thumb-hover: #202225;
+    --elevation-stroke: 0 0 0 1px rgba(4,4,5,0.15);
+    --elevation-low: 0 1px 0 rgba(4,4,5,0.2),0 1.5px 0 rgba(6,6,7,0.05),0 2px 0 rgba(4,4,5,0.05);
+    --elevation-medium: 0 4px 4px rgba(0,0,0,0.16);
+    --elevation-high: 0 8px 16px rgba(0,0,0,0.24);
+    --logo-primary: #fff;
+    --control-brand-foreground: #7289da;
+    --control-brand-foreground-new: #5865f2;
+    --text-muted: #747f8d;
+    --text-normal: #dcddde;
+    --text-link: #00b0f4;
+    --text-link-low-saturation: #5493ff;
+    --text-positive: #3ba55c;
+    --text-warning: #faa61a;
+    --text-danger: #ed4245;
+    --text-brand: #7289da;
+    --header-primary: #fff;
+    --header-secondary: #b9bbbe;
+    --interactive-normal: #b9bbbe;
+    --interactive-hover: #dcddde;
+    --interactive-active: #fff;
+    --interactive-muted: #4f545c;
+    --channels-default: #8e9297;
+    --channeltextarea-background: var(--background-secondary);
+    --activity-card-background: var(--background-secondary-alt);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    background-color: #36393f;
-    font-family: ' Whitney', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: var(--background-primary);
+    font-family: 'Whitney', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-    color: #dcddde;
+    min-height: 100vh;
+    color: var(--text-normal);
+    line-height: 1.5;
 }
+
 .container {
     width: 100%;
     max-width: 480px;
 }
+
 .login-box {
-    background-color: #2f3136;
-    padding: 40px;
+    background-color: var(--background-secondary);
+    padding: 32px;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--elevation-high);
 }
+
+.logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 32px;
+}
+
 .logo h2 {
     font-size: 24px;
     font-weight: 600;
-    color: #fff;
+    color: var(--header-primary);
     text-align: center;
+}
+
+.form-group {
     margin-bottom: 20px;
 }
-form {
-    display: flex;
-    flex-direction: column;
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--header-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
+
 input {
-    background-color: #202225;
-    border: 1px solid #202225;
-    color: #dcddde;
-    padding: 10px;
-    margin-bottom: 20px;
+    background-color: var(--background-tertiary);
+    border: 1px solid var(--background-tertiary);
+    color: var(--text-normal);
+    padding: 10px 12px;
     border-radius: 4px;
     font-size: 16px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    width: 100%;
 }
+
 input:focus {
     outline: none;
-    border-color: #7289da;
+    border-color: var(--control-brand-foreground);
+    box-shadow: 0 0 0 2px rgba(114, 137, 218, 0.2);
 }
-button {
-    background-color: #7289da;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color .17s ease;
+
+input.error {
+    border-color: var(--text-danger);
+    margin-bottom: 4px;
 }
-button:hover {
-    background-color: #677bc4;
-}
-.links {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+
+.error-message {
+    color: var(--text-danger);
     font-size: 14px;
-}
-.links a {
-    color: #00a8fc;
-    text-decoration: none;
-}
-.links a:hover {
-    text-decoration: underline;
-}
+    margin-top: 4px;
+    margin-bottom: 
